@@ -1,5 +1,11 @@
 <div>
-    <input placeholder="Appointment Description" type="text">
-    <input placeholder="Appointment Date" type="date">
-    <button title="Submit"></button>
+    <input [(ngModel)]="newAppointmentTitle" placeholder="Appointment Description" type="text">
+    <input [(ngModel)]="newAppointmentDate" placeholder="Appointment Date" type="date">
+    <button (click)="addAppointment()">Add</button>
 </div>
+
+<ul>
+    <li *ngFor="let apt of appointments">
+        {{apt.id}} {{apt.title}} {{apt.date | date: 'dd:MM:yyyy'}}
+    </li>
+</ul>
